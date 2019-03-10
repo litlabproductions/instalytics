@@ -14122,6 +14122,9 @@ p.description {
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.75rem;
+  letter-spacing: .1rem;
+  font-weight: 200;
+  font-size: 1.0rem;
 }
 
 .card-category {
@@ -17278,6 +17281,9 @@ Copyright (c) 2015 Daniel Eden
 
 .card .card-title {
   margin-bottom: .75rem;
+  letter-spacing: .175rem;
+	font-weight: 200;
+	font-size: 1.5rem;
 }
 
 .card .card-body {

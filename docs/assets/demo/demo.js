@@ -134,8 +134,6 @@ demo = {
             zeroLineColor: "transparent",
           },
           ticks: {
-            suggestedMin: 60,
-            suggestedMax: 125,
             padding: 20,
             fontColor: "#2380f7"
           }
@@ -182,10 +180,9 @@ demo = {
             zeroLineColor: "transparent",
           },
           ticks: {
-            suggestedMin: 60,
-            suggestedMax: 125,
+			stepSize: 400,
             padding: 20,
-            fontColor: "#9a9a9a"
+            fontColor: "#9a9a9a",
           }
         }],
 
@@ -233,7 +230,8 @@ demo = {
             suggestedMin: 50,
             suggestedMax: 110,
             padding: 20,
-            fontColor: "#ff8a76"
+            fontColor: "#ff8a76",
+			        beginAtZero: false   // minimum value will be 0.
           }
         }],
 
@@ -278,10 +276,8 @@ demo = {
             zeroLineColor: "transparent",
           },
           ticks: {
-            suggestedMin: 50,
-            suggestedMax: 125,
             padding: 20,
-            fontColor: "#9e9e9e"
+            fontColor: "#9e9e9e",
           }
         }],
 
@@ -360,7 +356,7 @@ demo = {
     var data = {
       labels: ['MON', 'TUES', 'WED', 'THURS', 'FRI', 'SAT', 'SUN'],
       datasets: [{
-        label: "Data",
+        label: "Reach",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#d048b6',
@@ -382,6 +378,7 @@ demo = {
       type: 'line',
       data: data,
       options: gradientChartOptionsConfigurationWithTooltipPurple
+		
     });
 
 
@@ -396,7 +393,7 @@ demo = {
     var data = {
       labels: ['MON', 'TUES', 'WED', 'THURS', 'FRI', 'SAT', 'SUN'],
       datasets: [{
-        label: "Weekly Impressions",
+        label: "Impressions",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#00d6b4',
@@ -410,6 +407,9 @@ demo = {
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
+		ticks: {
+             suggestedMin:50,
+             suggestedMax: 110},
         data: [9618, 6371, 6125, 7514, 8917, 4480, 6721],
       }]
     };
@@ -458,6 +458,8 @@ demo = {
       },
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };
+	  
+
     var myChartData = new Chart(ctx, config);
     $("#0").click(function() {
 	  chart_labels = ['JAN', 'FEB', 'MAR'];
@@ -466,6 +468,8 @@ demo = {
       data.datasets[0].data = chart_data;
       data.labels = chart_labels;
       myChartData.update();
+	  	min: 3400;
+		max: 4200;
     });
     $("#1").click(function() {
 	  chart_labels = ['OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'MAR'];
@@ -474,6 +478,7 @@ demo = {
       data.datasets[0].data = chart_data;
       data.labels = chart_labels;
       myChartData.update();
+	  min: 2250;
     });
 
     $("#2").click(function() {
@@ -483,6 +488,7 @@ demo = {
       data.datasets[0].data = chart_data;
       data.labels = chart_labels;
       myChartData.update();
+	  min: 1050;
     });
 
 
@@ -502,9 +508,9 @@ demo = {
         display: false
       },
       data: {
-        labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
+        labels: ['USA', 'UKRAINE', 'INDIA', 'INDONESIA', 'NIGERIA'],
         datasets: [{
-          label: "Countries",
+          label: "Followers",
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,
@@ -512,7 +518,7 @@ demo = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [53, 20, 10, 80, 100, 45],
+          data: [618, 206, 536, 165, 123],
         }]
       },
       options: gradientBarChartConfiguration
